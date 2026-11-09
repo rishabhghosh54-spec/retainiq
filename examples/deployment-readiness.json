@@ -14,7 +14,7 @@
   },
   "remote_configured": false,
   "public_repo_created": true,
-  "hosted_deployment_verified": false,
+  "hosted_deployment_verified": true,
   "instructions": "docs/DEPLOYMENT.md",
   "repository_url": "https://github.com/rishabhghosh54-spec/retainiq",
   "docker_health_verified": true,
@@ -24,6 +24,8 @@
     "run_url": "https://github.com/rishabhghosh54-spec/retainiq/actions/runs/42642664418"
   },
   "docker_retry_run_url": "https://github.com/rishabhghosh54-spec/retainiq/actions/runs/42643413362",
-  "hosted_deployment_status": "awaiting Streamlit sign-in and terms acceptance",
-  "docker_ci_conclusion": "success"
+  "hosted_deployment_status": "live; unauthenticated browser checked all four tabs and synthetic provenance",
+  "docker_ci_conclusion": "success",
+  "hosted_url": "https://retainiq-rishabh.streamlit.app/",
+  "public_api_hosted": false
 }

@@ -21,7 +21,7 @@ jobs:
       - name: Start demo container
         run: docker run -d --name retainiq-public-demo -p 127.0.0.1:8501:8501 retainiq-demo
       - name: Check Streamlit health
-        run: curl --fail --retry 15 --retry-connrefused --retry-delay 2 http://127.0.0.1:8501/_stcore/health
+        run: curl --fail --retry 15 --retry-all-errors --retry-delay 2 --max-time 5 http://127.0.0.1:8501/_stcore/health
       - name: Collect logs and stop test container
         if: always()
         run: |

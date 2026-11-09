@@ -1,0 +1,10 @@
+.git
+.venv
+data
+artifacts
+tests
+__pycache__
+*.zip
+.env
+kaggle.json
+.streamlit/secrets.toml

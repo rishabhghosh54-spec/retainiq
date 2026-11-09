@@ -1,0 +1,172 @@
+{
+  "provenance": "kkbox_subscriber_sample",
+  "feature_schema": [
+    "days_to_expiry",
+    "tenure_days",
+    "transactions_90d",
+    "paid_90d",
+    "auto_renew",
+    "active_days_30d",
+    "seconds_30d",
+    "unique_songs_30d"
+  ],
+  "release_status": "historical_proxy_research_only",
+  "data_audit": {
+    "cohorts": [
+      {
+        "cutoff": "2016-07-01",
+        "historical_subscribers": 8998,
+        "transaction_ambiguous_subscribers": 766,
+        "eligible_matured_rows": 2899,
+        "proxy_churn_rate": 0.06553984132459469
+      },
+      {
+        "cutoff": "2016-10-01",
+        "historical_subscribers": 9982,
+        "transaction_ambiguous_subscribers": 872,
+        "eligible_matured_rows": 3113,
+        "proxy_churn_rate": 0.03308705428846771
+      },
+      {
+        "cutoff": "2017-01-01",
+        "historical_subscribers": 11417,
+        "transaction_ambiguous_subscribers": 987,
+        "eligible_matured_rows": 3234,
+        "proxy_churn_rate": 0.047619047619047616
+      }
+    ],
+    "official_label_comparison": {
+      "cutoff": "2017-02-01",
+      "official_file": "train.csv",
+      "official_rows": 992931,
+      "proxy_rows": 3781,
+      "matched_rows": 3760,
+      "agreement": 0.9827127659574468,
+      "official_churn_rows_matched": 218,
+      "official_churn_missed_by_proxy": 65,
+      "official_churn_recall_of_proxy": 0.7018348623853211,
+      "release_gate": "Research only: resolve cancellation/revision semantics before claiming official KKBOX label performance",
+      "official_prevalence_matched": 0.05797872340425532,
+      "proxy_prevalence_matched": 0.04069148936170213,
+      "confusion_official_rows_proxy_columns": [
+        [
+          3542,
+          0
+        ],
+        [
+          65,
+          153
+        ]
+      ],
+      "limitations": "Agreement on intersecting conservative sampled cohort only. Different eligibility, revision ordering, cancellations and renewal deadline semantics prevent equivalence. March official labels not compared: full expiry+30 follow-up extends beyond available transactions."
+    }
+  },
+  "environment": {
+    "python": "3.14.6",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "duckdb": "2.0.0",
+    "joblib": "1.5.3"
+  },
+  "input_frame_sha256": "5c14c51443d654e24f83a7a0300d5062fafe4ab39e552d02e91d45c0725d8816",
+  "cohort_counts": [
+    2899,
+    3113,
+    3234
+  ],
+  "split_dates": [
+    "2016-07-01",
+    "2016-10-01",
+    "2017-01-01"
+  ],
+  "validation": {
+    "prevalence": {
+      "n": 3113,
+      "prevalence": 0.03308705428846771,
+      "log_loss": 0.15570887254238586,
+      "average_precision": 0.03308705428846771,
+      "roc_auc": 0.5,
+      "brier": 0.03304548451339192,
+      "recall_at_10pct": 0.08737864077669903,
+      "lift_at_10pct": 0.8718259895444362
+    },
+    "logistic": {
+      "n": 3113,
+      "prevalence": 0.03308705428846771,
+      "log_loss": 0.12370513025398064,
+      "average_precision": 0.3020004070320806,
+      "roc_auc": 0.7988452730380932,
+      "brier": 0.029835163088802834,
+      "recall_at_10pct": 0.5728155339805825,
+      "lift_at_10pct": 5.715303709235749
+    },
+    "boosted": {
+      "n": 3113,
+      "prevalence": 0.03308705428846771,
+      "log_loss": 0.1187919071906756,
+      "average_precision": 0.29336980306296523,
+      "roc_auc": 0.8516288746250362,
+      "brier": 0.030950776918579562,
+      "recall_at_10pct": 0.6310679611650486,
+      "lift_at_10pct": 6.2965210355987065
+    }
+  },
+  "protocol": "Fit train only; select minimum validation log loss; evaluate frozen winner once on test. No refit.",
+  "selected_model": "boosted",
+  "test": {
+    "n": 3234,
+    "prevalence": 0.047619047619047616,
+    "log_loss": 0.1532942030420802,
+    "average_precision": 0.3753211092860374,
+    "roc_auc": 0.8278735874515095,
+    "brier": 0.03892253979276529,
+    "recall_at_10pct": 0.551948051948052,
+    "lift_at_10pct": 5.5092592592592595,
+    "log_loss_bootstrap_95pct": [
+      0.13065902059078782,
+      0.17455593383778195
+    ]
+  },
+  "calibration": {
+    "predicted": [
+      0.002032496279714439,
+      0.0029819151410422407,
+      0.0042182859705994285,
+      0.005858613551330887,
+      0.009222201606322228,
+      0.01757047013876397,
+      0.034071514968328234,
+      0.3294014429423229
+    ],
+    "observed": [
+      0.009876543209876543,
+      0.019801980198019802,
+      0.007425742574257425,
+      0.01485148514851485,
+      0.012376237623762377,
+      0.0297029702970297,
+      0.036855036855036855,
+      0.2512437810945274
+    ]
+  },
+  "validation_permutation_importance": {
+    "days_to_expiry": -0.0015898809053117348,
+    "tenure_days": -0.0014089194268635298,
+    "transactions_90d": -0.003915764100221754,
+    "paid_90d": 0.012163860421453551,
+    "auto_renew": 0.04293706503315148,
+    "active_days_30d": 0.010526137745910514,
+    "seconds_30d": 0.007844158703380405,
+    "unique_songs_30d": -0.0012805011043119652
+  },
+  "limitations": [
+    "Historical reconstruction assumes event dates approximate availability; no ingestion timestamps.",
+    "Custom conservative renewal proxy, not official Kaggle labels or leaderboard evaluation.",
+    "Ambiguous same-day subscribers excluded; population differs from full KKBOX.",
+    "If invalid-duration quarantine is enabled, subscribers are excluded after a known negative or >=1e12-second record; less extreme positive outliers remain unaltered.",
+    "Recurring subscribers may occur across periods; this estimates future risk for an existing user base.",
+    "Risk is not treatment effect; no causal retention or revenue claims."
+  ],
+  "model_sha256": "95ca88ba629fd27f894b7530e6e0d487353810cbba0e563b6b2ac89e1c1c3fed"
+}

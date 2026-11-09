@@ -1,0 +1,19 @@
+{
+  "verified_date": "2026-11-09",
+  "docker_available_in_checked_paths": false,
+  "docker_image_built": false,
+  "docker_ci_configured": true,
+  "docker_ci_executed": false,
+  "public_entrypoint": "streamlit_app.py",
+  "public_data": "synthetic only; generated locally on first run",
+  "public_privacy_boundary_tests_passed": 2,
+  "suite": {
+    "passed": 32,
+    "deselected": 2,
+    "seconds": 28.8
+  },
+  "remote_configured": false,
+  "public_repo_created": false,
+  "hosted_deployment_verified": false,
+  "instructions": "docs/DEPLOYMENT.md"
+}

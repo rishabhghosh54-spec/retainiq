@@ -1,0 +1,66 @@
+{
+  "mode": "Streamlit AppTest; no browser/server connection",
+  "tab_labels_verified": true,
+  "supplied_metrics_match_report": true,
+  "label_discrepancy_visible": true,
+  "review_checks": [
+    {
+      "cohort": "March 2017",
+      "capacity_pct": 1,
+      "rows": 41,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "March 2017",
+      "capacity_pct": 10,
+      "rows": 404,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "March 2017",
+      "capacity_pct": 20,
+      "rows": 807,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "March 2017",
+      "capacity_pct": 50,
+      "rows": 2017,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "Historical test",
+      "capacity_pct": 1,
+      "rows": 42,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "Historical test",
+      "capacity_pct": 10,
+      "rows": 413,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "Historical test",
+      "capacity_pct": 20,
+      "rows": 825,
+      "sorted": true,
+      "target_hidden": true
+    },
+    {
+      "cohort": "Historical test",
+      "capacity_pct": 50,
+      "rows": 2061,
+      "sorted": true,
+      "target_hidden": true
+    }
+  ],
+  "browser_visual_review_completed": false,
+  "finding_fixed": "Review queue now uses ceil, matching metric Recall@K/Lift@K rounding."
+}

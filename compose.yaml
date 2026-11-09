@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["./artifacts:/app/artifacts:ro"]
+    environment:
+      RETAINIQ_MODEL: ${RETAINIQ_MODEL:-artifacts/demo/model.joblib}
+  dashboard:
+    build: .
+    command: streamlit run src/retainiq/dashboard.py --server.address=0.0.0.0
+    ports: ["127.0.0.1:8501:8501"]
+    volumes: ["./artifacts:/app/artifacts:ro"]
+    environment:
+      RETAINIQ_ARTIFACTS: ${RETAINIQ_ARTIFACTS:-artifacts/demo}

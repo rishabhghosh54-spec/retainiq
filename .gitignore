@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+data/
+artifacts/
+.env
+.streamlit/secrets.toml
+kaggle.json
+*.duckdb*
+build/
+dist/

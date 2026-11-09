@@ -1,0 +1,29 @@
+name: RetainIQ verification
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e '.[dev]'
+      - run: pytest -q
+      - run: retainiq demo --users 150
+  docker-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f Dockerfile.demo -t retainiq-demo .
+      - name: Verify synthetic demo inside the built image
+        run: docker run --rm --entrypoint python retainiq-demo -c "from retainiq.public_demo import ensure_public_demo; ensure_public_demo('artifacts/public-demo')"
+      - name: Start demo container
+        run: docker run -d --name retainiq-public-demo -p 127.0.0.1:8501:8501 retainiq-demo
+      - name: Check Streamlit health
+        run: curl --fail --retry 15 --retry-connrefused --retry-delay 2 http://127.0.0.1:8501/_stcore/health
+      - name: Collect logs and stop test container
+        if: always()
+        run: |
+          docker logs retainiq-public-demo || true
+          docker rm -f retainiq-public-demo || true

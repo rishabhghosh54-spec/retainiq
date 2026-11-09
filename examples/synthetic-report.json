@@ -1,0 +1,135 @@
+{
+  "provenance": "synthetic",
+  "feature_schema": [
+    "days_to_expiry",
+    "tenure_days",
+    "transactions_90d",
+    "paid_90d",
+    "auto_renew",
+    "active_days_30d",
+    "seconds_30d",
+    "unique_songs_30d"
+  ],
+  "release_status": "synthetic_demo",
+  "label_method": "kkbox_reference_gap_v1",
+  "training_prevalence": 0.465,
+  "data_audit": null,
+  "environment": {
+    "python": "3.14.6",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "duckdb": "2.0.0",
+    "joblib": "1.5.3"
+  },
+  "input_frame_sha256": "b144e52f38a5deb659d286013ff10388b019985d746fccacd503f80937f9d236",
+  "cohort_counts": [
+    600,
+    600,
+    600
+  ],
+  "split_dates": [
+    "2016-01-01",
+    "2016-04-01",
+    "2016-07-01"
+  ],
+  "validation": {
+    "prevalence": {
+      "n": 600,
+      "prevalence": 0.435,
+      "log_loss": 0.6864882955553934,
+      "average_precision": 0.435,
+      "roc_auc": 0.5,
+      "brier": 0.246675,
+      "recall_at_10pct": 0.11494252873563218,
+      "lift_at_10pct": 1.1494252873563218
+    },
+    "logistic": {
+      "n": 600,
+      "prevalence": 0.435,
+      "log_loss": 0.6005829561664358,
+      "average_precision": 0.666782926650752,
+      "roc_auc": 0.7382994834932582,
+      "brier": 0.2062445004968939,
+      "recall_at_10pct": 0.18007662835249041,
+      "lift_at_10pct": 1.8007662835249043
+    },
+    "boosted": {
+      "n": 600,
+      "prevalence": 0.435,
+      "log_loss": 0.6640903549589029,
+      "average_precision": 0.5533508598220858,
+      "roc_auc": 0.665321714757174,
+      "brier": 0.23307627580160395,
+      "recall_at_10pct": 0.13026819923371646,
+      "lift_at_10pct": 1.3026819923371646
+    }
+  },
+  "protocol": "Fit train only; select minimum validation log loss; evaluate frozen winner once on test. No refit.",
+  "selected_model": "logistic",
+  "test": {
+    "n": 600,
+    "prevalence": 0.47833333333333333,
+    "log_loss": 0.6292674093837508,
+    "average_precision": 0.6645946299462058,
+    "roc_auc": 0.699802963342276,
+    "brier": 0.22004720468513786,
+    "recall_at_10pct": 0.16376306620209058,
+    "lift_at_10pct": 1.637630662020906,
+    "log_loss_bootstrap_95pct": [
+      0.6050659575872956,
+      0.6530198014729948
+    ]
+  },
+  "test_baseline": {
+    "n": 600,
+    "prevalence": 0.47833333333333333,
+    "log_loss": 0.692564900345435,
+    "average_precision": 0.47833333333333333,
+    "roc_auc": 0.5,
+    "brier": 0.2497083333333333,
+    "recall_at_10pct": 0.09407665505226481,
+    "lift_at_10pct": 0.9407665505226481
+  },
+  "calibration": {
+    "predicted": [
+      0.20379873661696338,
+      0.2806974536608161,
+      0.3573068295202858,
+      0.4402559308664188,
+      0.5250406538913553,
+      0.5934263021881611,
+      0.6651751295868237,
+      0.732539052905567
+    ],
+    "observed": [
+      0.16,
+      0.25333333333333335,
+      0.5066666666666667,
+      0.4533333333333333,
+      0.56,
+      0.48,
+      0.64,
+      0.7733333333333333
+    ]
+  },
+  "validation_permutation_importance": {
+    "days_to_expiry": 0.00015962798593405214,
+    "tenure_days": 0.0,
+    "transactions_90d": 0.0,
+    "paid_90d": 0.0,
+    "auto_renew": -0.00034902556085688224,
+    "active_days_30d": 0.47363814094327855,
+    "seconds_30d": 0.021437517575880787,
+    "unique_songs_30d": 0.00200299688553666
+  },
+  "limitations": [
+    "Historical reconstruction assumes event dates approximate availability; no ingestion timestamps.",
+    "Target is reconstructed from the supplied KKBOX reference ordering/gap rule; supplied label disagreements are reported separately. Not a Kaggle leaderboard result.",
+    "Cohort requires a prior-month transaction and expiry in the prediction calendar month. Same-day transactions follow reference ordering; exact reference ties use the minimum known auto-renew flag for features.",
+    "If invalid-duration quarantine is enabled, subscribers are excluded after a known negative or >=1e12-second record; less extreme positive outliers remain unaltered.",
+    "Recurring subscribers may occur across periods; this estimates future risk for an existing user base.",
+    "Risk is not treatment effect; no causal retention or revenue claims."
+  ],
+  "model_sha256": "d37301a306e86a33c01da30f965b9a0f4cbd86366aaf36eebb61e222b20be6e6"
+}

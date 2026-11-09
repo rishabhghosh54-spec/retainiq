@@ -1,0 +1,57 @@
+{
+  "sampling": {
+    "algorithm": "md5_number_lower(msno) % modulus < buckets",
+    "buckets": 5,
+    "modulus": 1000,
+    "expected_fraction": 0.005,
+    "scope": "Complete histories for selected transaction subscribers; no date or outcome sampling"
+  },
+  "files": [
+    {
+      "file": "transactions_v2.csv",
+      "source_relative_path": "data\\churn_comp_refresh\\transactions_v2.csv",
+      "bytes": 115394513,
+      "sha256": "1d3015e32ed1661e9cfe813a9779b1b33e9d1d0829f1203633440045d4c6ea36",
+      "rows": 1431009,
+      "first_date": "20150101",
+      "last_date": "20170331",
+      "selected_rows": 6883,
+      "seconds": 1.7
+    },
+    {
+      "file": "transactions.csv",
+      "source_relative_path": "transactions.csv",
+      "bytes": 1729298376,
+      "sha256": "537c269140742fc74b28ba83941dff7b0ca00974dd48b80994948b8917adddef",
+      "rows": 21547746,
+      "first_date": "20150101",
+      "last_date": "20170228",
+      "selected_rows": 106501,
+      "seconds": 26.12
+    },
+    {
+      "file": "user_logs_v2.csv",
+      "source_relative_path": "data\\churn_comp_refresh\\user_logs_v2.csv",
+      "bytes": 1431465728,
+      "sha256": "0188c4111de1c4fa4dc3fb6253542f14e142e4d05bbf2f3a4c1c345f0014bdce",
+      "rows": 18396362,
+      "first_date": "20170301",
+      "last_date": "20170331",
+      "selected_rows": 89711,
+      "seconds": 22.9
+    },
+    {
+      "file": "user_logs.csv",
+      "source_relative_path": "user_logs.csv",
+      "bytes": 30514081415,
+      "sha256": "32d83038c86f7974b8f346bb7da1876a186248aa42c74a432517e70cf514d729",
+      "rows": 392106543,
+      "first_date": "20150101",
+      "last_date": "20170228",
+      "selected_rows": 1876432,
+      "seconds": 181.47
+    }
+  ],
+  "status": "complete",
+  "execution_note": "Transaction and v2 scans reused from completed stages; original source coverage retained from completed scan; original sample retried with enforced semi-join build side."
+}

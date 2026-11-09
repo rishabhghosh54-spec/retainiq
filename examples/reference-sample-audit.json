@@ -1,0 +1,54 @@
+{
+  "cohorts": [
+    {
+      "cutoff": "2016-07-01",
+      "historical_subscribers": 8998,
+      "transaction_ambiguous_subscribers": 766,
+      "eligible_matured_rows": 3626,
+      "reference_churn_rate": 0.053502482073910645,
+      "label_method": "kkbox_reference_gap_v1"
+    },
+    {
+      "cutoff": "2016-10-01",
+      "historical_subscribers": 9982,
+      "transaction_ambiguous_subscribers": 872,
+      "eligible_matured_rows": 3982,
+      "reference_churn_rate": 0.028879959819186337,
+      "label_method": "kkbox_reference_gap_v1"
+    },
+    {
+      "cutoff": "2017-01-01",
+      "historical_subscribers": 11417,
+      "transaction_ambiguous_subscribers": 987,
+      "eligible_matured_rows": 4121,
+      "reference_churn_rate": 0.04003882552778452,
+      "label_method": "kkbox_reference_gap_v1"
+    }
+  ],
+  "official_label_comparison": {
+    "cutoff": "2017-02-01",
+    "official_file": "train.csv",
+    "official_rows": 992931,
+    "proxy_rows": 4186,
+    "matched_rows": 4186,
+    "agreement": 0.9868609651218346,
+    "official_churn_rows_matched": 201,
+    "official_churn_missed_by_proxy": 55,
+    "official_churn_recall_of_proxy": 0.7263681592039801,
+    "label_method": "kkbox_reference_gap_v1",
+    "release_gate": "Reference reconstruction and supplied labels are distinct targets. Report disagreements; never overwrite either to improve agreement.",
+    "official_prevalence_matched": 0.04801720019111323,
+    "proxy_prevalence_matched": 0.03487816531294792,
+    "confusion_official_rows_proxy_columns": [
+      [
+        3985,
+        0
+      ],
+      [
+        55,
+        146
+      ]
+    ],
+    "limitations": "Agreement on intersecting monthly reference cohort, before listening quality exclusions. Reconstructed reference labels may differ from supplied labels. March reconstruction is censored; supplied March labels may be evaluated separately as external ground truth."
+  }
+}

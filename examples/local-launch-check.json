@@ -1,0 +1,18 @@
+[
+  {
+    "service": "streamlit",
+    "startup_timed_out": true,
+    "exit_code": 1,
+    "socket_setup_blocked": true,
+    "seconds": 12.03,
+    "running_after_check": false
+  },
+  {
+    "service": "uvicorn",
+    "startup_timed_out": true,
+    "exit_code": 1,
+    "socket_setup_blocked": true,
+    "seconds": 12.03,
+    "running_after_check": false
+  }
+]

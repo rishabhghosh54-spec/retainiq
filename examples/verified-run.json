@@ -1,0 +1,71 @@
+{
+  "project_version": "0.2.0",
+  "verified_date": "2026-11-09",
+  "tests": {
+    "passed": 32,
+    "deselected": 2,
+    "seconds": 28.8,
+    "excluded_scope": "ASGI HTTP transport: Windows asyncio socketpair setup blocked before requests"
+  },
+  "reference_source_sha256": "CD93CB64E6A82C983E3E8B4BE2534ADF291213F5F5EFC82409FB578FE1A03693",
+  "code_sha256": {
+    "api.py": "599e59a5711c529147a2487d4cc5cad71ab65310162261690a62e78e40c47e08",
+    "audit.py": "1cdd4b23bccbb82b7199abcde8fffba6b2625a8207b4bc282cfcbbf59dac81f3",
+    "cli.py": "bdb3ebeb19d08053aee7ddc7d0d7ba3b6b8785a26f880ab5264581848bda689f",
+    "dashboard.py": "1ee606542a04643ec43249795b9236177a2f9822f69ebaaf2ab4bd2972f0bdf9",
+    "data.py": "7e4f435304711184514f6d932f4ca689aecfd27970dc6853ddac2e6cb78aceec",
+    "demo.py": "61d66a9c37ed8828bbc6c968468ef5cb90b7ce6bdbb65f0ee2ca88ee588bf7e5",
+    "evaluation.py": "d3cf2938d161242496a35fa31d60a9c9a51eade81151efd30fddd2c1cc2dc777",
+    "features.py": "3ed532f52e50f9c9ae75b1838a870ef39f15d00fa7ac6b115270adb177f27c21",
+    "labels.py": "b2a26cdf7e253b61137cd569b6c0bbb5715330a9383fdde999a423afa8a925f1",
+    "model.py": "8ee6698b024f8d01366676e2ccce698a132cd008f4d736873106ddec2da9c692",
+    "public_demo.py": "3cd5465e4c8cd3fc8926a8adb2722a7100b53e1c9434eb628537e551bd53008a",
+    "sample.py": "435ebd792795a774cde004304822a0032b911dceb5b64d8814530de69da5a4ac",
+    "validation.py": "89b53dfaa376e31a2e6a0b3f842bd53c764d5f35aec579196b42e8cd63a19b53",
+    "__init__.py": "e6aac3dc32a8fdb6ab24dc16e12ae513582856a5fdf78ed6cf2b4cc0c4294e2b"
+  },
+  "artifact_sha256": {
+    "reference-report.json": "7f473208e871c3abf698fe63021fee2a09a1f03cab141865a4e9cf21edc2ebbf",
+    "reference-sample-audit.json": "0896db5700b8083b31007791eb1cf9e2c0d11a764c036d64bd470bcf94d9032a",
+    "reference-full-audit.json": "e18c069b3aa242a2951a0faf08b677d537d7b010d80fe0b848ff19090feb97cf",
+    "official-march-evaluation.json": "5c642a5636ed2705e01071e4e64b1f285c966298e3770a68ab992058cd8e909f",
+    "reference-application-check.json": "60104631696738ef5ab65f9cd53bb3afc5bd46644765d8e616077b5757ae03ca",
+    "reference-oracle-check.json": "f0c3ba4f0a59bad83a62f7dc331ca6c48d1a61dbbdaab93fca43b506fdb9f278",
+    "synthetic-report.json": "b9f607658298a7e7d852794b1d647dd0f3395c047550405afcdb9467c4b7cf5d"
+  },
+  "docker_executed": false,
+  "remote_ci_executed": false,
+  "published": false,
+  "package": {
+    "wheel_built": true,
+    "filename": "retainiq-0.2.0-py3-none-any.whl",
+    "sha256": "88461b6e490ffcb53fb697c03f222297ec6fb5d67da6573ebccde123233f26e6"
+  },
+  "additional_reference_quarantine_test": {
+    "passed": 1,
+    "seconds": 2.7
+  },
+  "dashboard_review": {
+    "cohorts": 2,
+    "capacity_settings_each": [
+      1,
+      10,
+      20,
+      50
+    ],
+    "browser_visual_review_completed": true,
+    "rounding_regression_checked": true,
+    "services_left_running": false,
+    "live_record": "examples/live-browser-review.json",
+    "service_state": "User-started dashboard left running; earlier diagnostic processes stopped"
+  },
+  "live_api_review": {
+    "http_verified": true,
+    "checks_passed": 7,
+    "offline_prediction_parity": true,
+    "record": "examples/live-api-review.json",
+    "missing_model_http_verified": false,
+    "latency_benchmarked": false
+  },
+  "deployment_preparation": "examples/deployment-readiness.json"
+}

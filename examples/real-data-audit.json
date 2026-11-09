@@ -1,0 +1,50 @@
+{
+  "cohorts": [
+    {
+      "cutoff": "2016-07-01",
+      "historical_subscribers": 8998,
+      "transaction_ambiguous_subscribers": 766,
+      "eligible_matured_rows": 2899,
+      "proxy_churn_rate": 0.06553984132459469
+    },
+    {
+      "cutoff": "2016-10-01",
+      "historical_subscribers": 9982,
+      "transaction_ambiguous_subscribers": 872,
+      "eligible_matured_rows": 3113,
+      "proxy_churn_rate": 0.03308705428846771
+    },
+    {
+      "cutoff": "2017-01-01",
+      "historical_subscribers": 11417,
+      "transaction_ambiguous_subscribers": 987,
+      "eligible_matured_rows": 3234,
+      "proxy_churn_rate": 0.047619047619047616
+    }
+  ],
+  "official_label_comparison": {
+    "cutoff": "2017-02-01",
+    "official_file": "train.csv",
+    "official_rows": 992931,
+    "proxy_rows": 3781,
+    "matched_rows": 3760,
+    "agreement": 0.9827127659574468,
+    "official_churn_rows_matched": 218,
+    "official_churn_missed_by_proxy": 65,
+    "official_churn_recall_of_proxy": 0.7018348623853211,
+    "release_gate": "Research only: resolve cancellation/revision semantics before claiming official KKBOX label performance",
+    "official_prevalence_matched": 0.05797872340425532,
+    "proxy_prevalence_matched": 0.04069148936170213,
+    "confusion_official_rows_proxy_columns": [
+      [
+        3542,
+        0
+      ],
+      [
+        65,
+        153
+      ]
+    ],
+    "limitations": "Agreement on intersecting conservative sampled cohort only. Different eligibility, revision ordering, cancellations and renewal deadline semantics prevent equivalence. March official labels not compared: full expiry+30 follow-up extends beyond available transactions."
+  }
+}

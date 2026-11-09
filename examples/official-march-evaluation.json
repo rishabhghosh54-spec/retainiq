@@ -1,0 +1,66 @@
+{
+  "target": "supplied_official_labels",
+  "cutoff": "2017-03-01",
+  "label_file": "train_v2.csv",
+  "label_file_sha256": "1f7590a3467174f5a147db3fb85dd1393074b6c13da0fd6e70af31bf37dee5cc",
+  "model_sha256": "ec900eacf6de5059f6de2bff970842b5deafa3cc2e102b9a897db5f04b7b90d8",
+  "model": "boosted",
+  "training_label_method": "kkbox_reference_gap_v1",
+  "eligible_feature_rows": 4138,
+  "matched_rows": 4034,
+  "feature_rows_without_supplied_label": 104,
+  "test": {
+    "n": 4034,
+    "prevalence": 0.05999008428358949,
+    "log_loss": 0.21321121675831975,
+    "average_precision": 0.3089366341605857,
+    "roc_auc": 0.7619270233985423,
+    "brier": 0.049795045036003696,
+    "recall_at_10pct": 0.5,
+    "lift_at_10pct": 4.992574257425742,
+    "log_loss_bootstrap_95pct": [
+      0.1865322774342318,
+      0.2375459853930342
+    ]
+  },
+  "baseline": {
+    "n": 4034,
+    "prevalence": 0.05999008428358949,
+    "log_loss": 0.22734086054674882,
+    "average_precision": 0.05999008428358949,
+    "roc_auc": 0.5,
+    "brier": 0.056433363053668355,
+    "recall_at_10pct": 0.10330578512396695,
+    "lift_at_10pct": 1.031523606906145
+  },
+  "protocol": "Previously frozen model; pre-cutoff features only; supplied external labels used only for evaluation. No fitting, recalibration, selection or threshold tuning on this cohort.",
+  "limitations": [
+    "Sampled monthly reference-eligible subscribers with valid listening history; not the full competition population.",
+    "Training uses reference-reconstructed outcomes; evaluation uses supplied labels, which disagree on an audited prior cohort.",
+    "No April transaction history to reconstruct March outcomes independently; supplied labels are treated as external ground truth.",
+    "No source arrival timestamps; historical availability is assumed from event dates.",
+    "No causal retention, revenue, or Kaggle leaderboard claim."
+  ],
+  "calibration": {
+    "predicted": [
+      0.002173804576578592,
+      0.0032678278510413455,
+      0.004255462680878228,
+      0.005387332176213898,
+      0.007013187222418196,
+      0.010252570495911986,
+      0.023265725531827687,
+      0.1874021207559527
+    ],
+    "observed": [
+      0.0297029702970297,
+      0.02952029520295203,
+      0.0255863539445629,
+      0.017964071856287425,
+      0.015873015873015872,
+      0.037698412698412696,
+      0.07334525939177101,
+      0.27111111111111114
+    ]
+  }
+}

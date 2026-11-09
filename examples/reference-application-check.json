@@ -1,0 +1,9 @@
+{
+  "real_dashboard_rendered": true,
+  "reference_label_discrepancy_visible": true,
+  "supplied_label_evaluation_visible": true,
+  "review_cohort_switch": true,
+  "capacity_slider": true,
+  "inference_offline_parity": true,
+  "http_transport_retested": false
+}

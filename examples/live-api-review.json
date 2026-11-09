@@ -1,0 +1,95 @@
+{
+  "verified_date": "2026-11-09",
+  "base_url": "http://127.0.0.1:8000",
+  "interface": "Live Swagger UI in the in-app browser",
+  "checks": [
+    {
+      "case": "health",
+      "status": 200,
+      "response": {
+        "status": "ready",
+        "provenance": "kkbox_subscriber_sample"
+      }
+    },
+    {
+      "case": "valid_two_record_batch",
+      "status": 200,
+      "request": {
+        "records": [
+          {
+            "days_to_expiry": 10,
+            "tenure_days": 180,
+            "transactions_90d": 3,
+            "paid_90d": 447,
+            "auto_renew": 1,
+            "active_days_30d": 20,
+            "seconds_30d": 12000,
+            "unique_songs_30d": 150
+          },
+          {
+            "days_to_expiry": 30,
+            "tenure_days": 90,
+            "transactions_90d": 1,
+            "paid_90d": 149,
+            "auto_renew": 0,
+            "active_days_30d": 0,
+            "seconds_30d": 0,
+            "unique_songs_30d": 0
+          }
+        ]
+      },
+      "probabilities": [
+        0.02089953943780349,
+        0.7329359122980194
+      ],
+      "label_method": "kkbox_reference_gap_v1"
+    },
+    {
+      "case": "invalid_auto_renew",
+      "status": 422,
+      "error_type": "less_than_equal",
+      "field": "auto_renew"
+    },
+    {
+      "case": "forbidden_target_field",
+      "status": 422,
+      "error_type": "extra_forbidden",
+      "field": "is_churn"
+    },
+    {
+      "case": "empty_batch",
+      "status": 422,
+      "error_type": "too_short",
+      "field": "records"
+    },
+    {
+      "case": "batch_1001_rejected",
+      "status": 422,
+      "error_type": "too_long",
+      "maximum": 1000
+    },
+    {
+      "case": "batch_1000_accepted",
+      "status": 200,
+      "probability_count": 1000
+    }
+  ],
+  "offline_prediction_parity": {
+    "verified": true,
+    "probabilities": [
+      0.02089953943780349,
+      0.7329359122980194
+    ],
+    "comparison": "Exact equality with the locally saved reference model"
+  },
+  "missing_model_http_verified": false,
+  "missing_model_unit_verified": true,
+  "latency_benchmarked": false,
+  "screenshot": "docs/screenshots/live-api-prediction.png",
+  "service_start": "user ran Start-RetainIQ-API.cmd",
+  "services_left_running": [
+    "dashboard",
+    "api"
+  ],
+  "model_sha256": "ec900eacf6de5059f6de2bff970842b5deafa3cc2e102b9a897db5f04b7b90d8"
+}

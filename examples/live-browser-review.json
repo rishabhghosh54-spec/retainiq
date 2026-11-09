@@ -1,0 +1,35 @@
+{
+  "verified_date": "2026-11-09",
+  "url": "http://127.0.0.1:8501/",
+  "service_start": "user ran the existing Windows launcher",
+  "browser": "in-app browser",
+  "tabs_reviewed": [
+    "Historical backtest",
+    "Supplied-label evaluation",
+    "Review queue",
+    "Model & evidence"
+  ],
+  "visible_march_metrics": {
+    "matched_subscribers": 4034,
+    "log_loss": 0.213,
+    "average_precision": 0.309,
+    "roc_auc": 0.762,
+    "lift_at_10pct": 4.993
+  },
+  "capacity_transition": [
+    10,
+    11,
+    10
+  ],
+  "cohort_transition": [
+    "March 2017",
+    "Historical test",
+    "March 2017"
+  ],
+  "final_visible_tab": "Supplied-label evaluation",
+  "screenshot": "docs/screenshots/live-march-evaluation.png",
+  "raw_subscriber_data_exported": false,
+  "dashboard_left_running": true,
+  "api_http_verified": false,
+  "docker_verified": false
+}

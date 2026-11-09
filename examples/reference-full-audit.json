@@ -1,0 +1,41 @@
+{
+  "cutoff": "2017-02-01",
+  "official_file": "train.csv",
+  "official_rows": 992931,
+  "proxy_rows": 856144,
+  "matched_rows": 856085,
+  "agreement": 0.9877056600688016,
+  "official_churn_rows_matched": 38684,
+  "official_churn_missed_by_proxy": 10357,
+  "official_churn_recall_of_proxy": 0.732266570158205,
+  "label_method": "kkbox_reference_gap_v1",
+  "release_gate": "Reference reconstruction and supplied labels are distinct targets. Report disagreements; never overwrite either to improve agreement.",
+  "official_prevalence_matched": 0.04518710174807408,
+  "proxy_prevalence_matched": 0.03328524620802841,
+  "confusion_official_rows_proxy_columns": [
+    [
+      817233,
+      168
+    ],
+    [
+      10357,
+      28327
+    ]
+  ],
+  "limitations": "Agreement on intersecting monthly reference cohort, before listening quality exclusions. Reconstructed reference labels may differ from supplied labels. March reconstruction is censored; supplied March labels may be evaluated separately as external ground truth.",
+  "scope": "All supplied transaction rows; no subscriber sampling or listening-based exclusion",
+  "raw_transaction_rows": 22978755,
+  "deduplicated_transaction_rows": 22975416,
+  "sources": [
+    {
+      "file": "transactions_v2.csv",
+      "bytes": 115394513,
+      "sha256": "1d3015e32ed1661e9cfe813a9779b1b33e9d1d0829f1203633440045d4c6ea36"
+    },
+    {
+      "file": "transactions.csv",
+      "bytes": 1729298376,
+      "sha256": "537c269140742fc74b28ba83941dff7b0ca00974dd48b80994948b8917adddef"
+    }
+  ]
+}

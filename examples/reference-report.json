@@ -1,0 +1,188 @@
+{
+  "provenance": "kkbox_subscriber_sample",
+  "feature_schema": [
+    "days_to_expiry",
+    "tenure_days",
+    "transactions_90d",
+    "paid_90d",
+    "auto_renew",
+    "active_days_30d",
+    "seconds_30d",
+    "unique_songs_30d"
+  ],
+  "release_status": "reference_reconstruction_research",
+  "label_method": "kkbox_reference_gap_v1",
+  "training_prevalence": 0.053502482073910645,
+  "data_audit": {
+    "cohorts": [
+      {
+        "cutoff": "2016-07-01",
+        "historical_subscribers": 8998,
+        "transaction_ambiguous_subscribers": 766,
+        "eligible_matured_rows": 3626,
+        "reference_churn_rate": 0.053502482073910645,
+        "label_method": "kkbox_reference_gap_v1"
+      },
+      {
+        "cutoff": "2016-10-01",
+        "historical_subscribers": 9982,
+        "transaction_ambiguous_subscribers": 872,
+        "eligible_matured_rows": 3982,
+        "reference_churn_rate": 0.028879959819186337,
+        "label_method": "kkbox_reference_gap_v1"
+      },
+      {
+        "cutoff": "2017-01-01",
+        "historical_subscribers": 11417,
+        "transaction_ambiguous_subscribers": 987,
+        "eligible_matured_rows": 4121,
+        "reference_churn_rate": 0.04003882552778452,
+        "label_method": "kkbox_reference_gap_v1"
+      }
+    ],
+    "official_label_comparison": {
+      "cutoff": "2017-02-01",
+      "official_file": "train.csv",
+      "official_rows": 992931,
+      "proxy_rows": 4186,
+      "matched_rows": 4186,
+      "agreement": 0.9868609651218346,
+      "official_churn_rows_matched": 201,
+      "official_churn_missed_by_proxy": 55,
+      "official_churn_recall_of_proxy": 0.7263681592039801,
+      "label_method": "kkbox_reference_gap_v1",
+      "release_gate": "Reference reconstruction and supplied labels are distinct targets. Report disagreements; never overwrite either to improve agreement.",
+      "official_prevalence_matched": 0.04801720019111323,
+      "proxy_prevalence_matched": 0.03487816531294792,
+      "confusion_official_rows_proxy_columns": [
+        [
+          3985,
+          0
+        ],
+        [
+          55,
+          146
+        ]
+      ],
+      "limitations": "Agreement on intersecting monthly reference cohort, before listening quality exclusions. Reconstructed reference labels may differ from supplied labels. March reconstruction is censored; supplied March labels may be evaluated separately as external ground truth."
+    }
+  },
+  "environment": {
+    "python": "3.14.6",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "duckdb": "2.0.0",
+    "joblib": "1.5.3"
+  },
+  "input_frame_sha256": "b9129e0ee5a6bf94cb8415060ca2d392d4d80cbf160ca732c56ec8c4457d24c9",
+  "cohort_counts": [
+    3626,
+    3982,
+    4121
+  ],
+  "split_dates": [
+    "2016-07-01",
+    "2016-10-01",
+    "2017-01-01"
+  ],
+  "validation": {
+    "prevalence": {
+      "n": 3982,
+      "prevalence": 0.028879959819186337,
+      "log_loss": 0.13796021917445234,
+      "average_precision": 0.028879959819186337,
+      "roc_auc": 0.5,
+      "brier": 0.02865217634221292,
+      "recall_at_10pct": 0.12173913043478261,
+      "lift_at_10pct": 1.2149504195270786
+    },
+    "logistic": {
+      "n": 3982,
+      "prevalence": 0.028879959819186337,
+      "log_loss": 0.12506790757844444,
+      "average_precision": 0.2051159189783623,
+      "roc_auc": 0.6786161612754523,
+      "brier": 0.027753422214189034,
+      "recall_at_10pct": 0.41739130434782606,
+      "lift_at_10pct": 4.165544295521412
+    },
+    "boosted": {
+      "n": 3982,
+      "prevalence": 0.028879959819186337,
+      "log_loss": 0.11293302495723558,
+      "average_precision": 0.20777867283314716,
+      "roc_auc": 0.8171540684273846,
+      "brier": 0.027192933472370038,
+      "recall_at_10pct": 0.5217391304347826,
+      "lift_at_10pct": 5.206930369401765
+    }
+  },
+  "protocol": "Fit train only; select minimum validation log loss; evaluate frozen winner once on test. No refit.",
+  "selected_model": "boosted",
+  "test": {
+    "n": 4121,
+    "prevalence": 0.04003882552778452,
+    "log_loss": 0.1429975000561261,
+    "average_precision": 0.2897136770568529,
+    "roc_auc": 0.79141541808377,
+    "brier": 0.033892990995034546,
+    "recall_at_10pct": 0.5696969696969697,
+    "lift_at_10pct": 5.684554993029569,
+    "log_loss_bootstrap_95pct": [
+      0.1252315118236621,
+      0.16339858806408203
+    ]
+  },
+  "test_baseline": {
+    "n": 4121,
+    "prevalence": 0.04003882552778452,
+    "log_loss": 0.1700200900747781,
+    "average_precision": 0.04003882552778452,
+    "roc_auc": 0.5,
+    "brier": 0.0386169880257322,
+    "recall_at_10pct": 0.12121212121212122,
+    "lift_at_10pct": 1.2094797857509723
+  },
+  "calibration": {
+    "predicted": [
+      0.0021998899978473326,
+      0.003271425981343629,
+      0.004305241086860701,
+      0.005460107768783524,
+      0.007354390379278431,
+      0.011744990600103266,
+      0.02525945809373115,
+      0.19820478465942248
+    ],
+    "observed": [
+      0.01744186046511628,
+      0.011278195488721804,
+      0.014056224899598393,
+      0.017475728155339806,
+      0.009708737864077669,
+      0.02330097087378641,
+      0.03300970873786408,
+      0.1941747572815534
+    ]
+  },
+  "validation_permutation_importance": {
+    "days_to_expiry": 0.0008806419856802935,
+    "tenure_days": 0.0016681940718313766,
+    "transactions_90d": -0.0025267078944288582,
+    "paid_90d": 0.007462007551800816,
+    "auto_renew": 0.020336201265722106,
+    "active_days_30d": 0.005687270843168095,
+    "seconds_30d": 0.004409697479626999,
+    "unique_songs_30d": 0.0015210929222242754
+  },
+  "limitations": [
+    "Historical reconstruction assumes event dates approximate availability; no ingestion timestamps.",
+    "Target is reconstructed from the supplied KKBOX reference ordering/gap rule; supplied label disagreements are reported separately. Not a Kaggle leaderboard result.",
+    "Cohort requires a prior-month transaction and expiry in the prediction calendar month. Same-day transactions follow reference ordering; exact reference ties use the minimum known auto-renew flag for features.",
+    "If invalid-duration quarantine is enabled, subscribers are excluded after a known negative or >=1e12-second record; less extreme positive outliers remain unaltered.",
+    "Recurring subscribers may occur across periods; this estimates future risk for an existing user base.",
+    "Risk is not treatment effect; no causal retention or revenue claims."
+  ],
+  "model_sha256": "ec900eacf6de5059f6de2bff970842b5deafa3cc2e102b9a897db5f04b7b90d8"
+}

@@ -1,9 +1,9 @@
 {
   "verified_date": "2026-11-09",
   "docker_available_in_checked_paths": false,
-  "docker_image_built": false,
+  "docker_image_built": true,
   "docker_ci_configured": true,
-  "docker_ci_executed": false,
+  "docker_ci_executed": true,
   "public_entrypoint": "streamlit_app.py",
   "public_data": "synthetic only; generated locally on first run",
   "public_privacy_boundary_tests_passed": 2,
@@ -13,7 +13,17 @@
     "seconds": 28.8
   },
   "remote_configured": false,
-  "public_repo_created": false,
+  "public_repo_created": true,
   "hosted_deployment_verified": false,
-  "instructions": "docs/DEPLOYMENT.md"
+  "instructions": "docs/DEPLOYMENT.md",
+  "repository_url": "https://github.com/rishabhghosh54-spec/retainiq",
+  "docker_health_verified": true,
+  "remote_ci_tests": {
+    "passed": 34,
+    "seconds": 10.49,
+    "run_url": "https://github.com/rishabhghosh54-spec/retainiq/actions/runs/42642664418"
+  },
+  "docker_retry_run_url": "https://github.com/rishabhghosh54-spec/retainiq/actions/runs/42643413362",
+  "hosted_deployment_status": "awaiting Streamlit sign-in and terms acceptance",
+  "docker_ci_conclusion": "success"
 }
